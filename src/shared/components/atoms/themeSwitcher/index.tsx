@@ -18,7 +18,7 @@ const ThemeSwitcher = () => {
     } else {
       setDark(true);
     }
-  }, []);
+  }, [setDark]);
 
   useEffect(() => {
     const html = document.documentElement;

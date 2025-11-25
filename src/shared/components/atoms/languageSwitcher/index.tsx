@@ -13,8 +13,6 @@ export default function LanguageSwitcher() {
     const match = pathname.match(/^\/(fa|en)/);
     const lang = match ? (match[1] as "fa" | "en") : "fa";
 
-    setCurrentLang(lang);
-
     if (i18n.language !== lang) {
       i18n.changeLanguage(lang);
     }
@@ -26,6 +24,7 @@ export default function LanguageSwitcher() {
     const newPath = `/${newLang}${cleanPath}`;
     router.push(newPath);
     i18n.changeLanguage(newLang);
+    setCurrentLang(newLang);
   };
 
   return <button onClick={toggleLanguage}>{currentLang.toUpperCase()}</button>;
